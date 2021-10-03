@@ -10,16 +10,16 @@ async function main() {
   
   console.log("Account balance:", (await deployer.getBalance()).toString());
 
-  const BuyMeOneCoffee = await hre.ethers.getContractFactory("BuyMeOneCoffee");
-  const buyMeOneCoffee = await BuyMeOneCoffee.deploy("Gustavo", 21);
-  await buyMeOneCoffee.deployed();
+  const StoreUser = await hre.ethers.getContractFactory("StoreUser");
+  const storeUser = await StoreUser.deploy("Gustavo", 21);
+  await storeUser.deployed();
 
-  console.log("Deployed to:", buyMeOneCoffee.address);
+  console.log("Deployed to:", storeUser.address);
 
   if(process.env.CHAIN_SCAN_TOKEN) {
     console.log("Verifying contract:")
     await hre.run("verify:verify", {
-      address: buyMeOneCoffee.address,
+      address: storeUser.address,
     });
   }
 }

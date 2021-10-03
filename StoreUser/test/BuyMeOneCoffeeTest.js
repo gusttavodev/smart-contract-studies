@@ -1,15 +1,15 @@
 const { expect } = require("chai");
 const { ethers } = require("hardhat");
 
-describe("BuyMeOneCoffee", function () {
+describe("StoreUser", function () {
   it("Should deploy contract with params", async function () {
     const [owner] = await ethers.getSigners();
 
-    const BuyMeOneCoffee = await ethers.getContractFactory("BuyMeOneCoffee");
-    const buyMeOneCoffee = await BuyMeOneCoffee.deploy("Gustavo", 21);
-    await buyMeOneCoffee.deployed();
+    const StoreUser = await ethers.getContractFactory("StoreUser");
+    const storeUser = await StoreUser.deploy("Gustavo", 21);
+    await storeUser.deployed();
 
-    const user = await buyMeOneCoffee.getUser()
+    const user = await storeUser.getUser()
 
     const expectedUser = {
       name: "Gustavo",
@@ -24,9 +24,9 @@ describe("BuyMeOneCoffee", function () {
   it("Should set user data", async function () {
     const [owner, addr1] = await ethers.getSigners();
 
-    const BuyMeOneCoffee = await ethers.getContractFactory("BuyMeOneCoffee");
-    const buyMeOneCoffee = await BuyMeOneCoffee.deploy("Gustavo", 21);
-    await buyMeOneCoffee.deployed();
+    const StoreUser = await ethers.getContractFactory("StoreUser");
+    const storeUser = await StoreUser.deploy("Gustavo", 21);
+    await storeUser.deployed();
 
     const newUser = {
       name: "Pedro",
@@ -34,8 +34,8 @@ describe("BuyMeOneCoffee", function () {
       wallet: addr1.address
     }
 
-    await buyMeOneCoffee.setUser(newUser)
-    const user = await buyMeOneCoffee.getUser()
+    await storeUser.setUser(newUser)
+    const user = await storeUser.getUser()
 
     expect(user.name).to.equal(newUser.name);
     expect(user.age).to.equal(newUser.age);

@@ -8,7 +8,7 @@ struct User {
     uint age;  
     address payable wallet;
 }
-contract BuyMeOneCoffee{
+contract StoreUser{
     User user;
 
     constructor(string memory name, uint age) {
