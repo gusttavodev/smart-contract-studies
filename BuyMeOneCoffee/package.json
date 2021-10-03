@@ -1,0 +1,23 @@
+{
+  "name": "hardhat-project",
+  "scripts": {
+    "eth:test": "hardhat test",
+    "eth:node": "hardhat node",
+    "eth:compile": "hardhat compile",
+    "eth:deploy-local": "hardhat run scripts/deploy.js --network localhost",
+    "eth:deploy-testnet": "hardhat run scripts/deploy.js --network testnet",
+    "eth:deploy-mainnet": "hardhat run scripts/deploy.js --network mainnet"
+  },
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.2",
+    "@nomiclabs/hardhat-waffle": "^2.0.1",
+    "chai": "^4.3.4",
+    "ethereum-waffle": "^3.4.0",
+    "ethers": "^5.4.7",
+    "hardhat": "^2.6.4"
+  },
+  "dependencies": {
+    "@nomiclabs/hardhat-etherscan": "^2.1.6",
+    "dotenv": "^10.0.0"
+  }
+}
